@@ -1,0 +1,23 @@
+
+create resource group = 	az group create --name pc --location centralindia
+
+
+
+create storage account = 	az storage account create --resource-group pc --name pcisharsh
+
+
+
+create container =		az storage container create --account-name pcisharsh --name laptop --auth-mode login
+
+
+
+blob public access =		az storage account update --name pcisharsh --resource-group pc --allow-blob-public-access true
+
+
+
+change access level to blob = 	az storage container set-permission --name laptop --account-name pcisharsh --public-access blob 
+
+
+
+upload file on container =	az storage blob upload --file /home/harsh/Pictures/WhatsApp\ Image\ 2026-03-06\ at\ 1.43.13\ PM.jpeg  --account-name pcisharsh --container-name laptop --name pic
+
